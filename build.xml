@@ -6,12 +6,10 @@
 
 	<property name="builddir" value="${basedir}/build/" />
 	<property name="srcdir" value="${basedir}/src/"/>
-		
+
 	<!-- main lib containing jar such as JLink, Guava etc -->
-	<property name="libdir" value="${basedir}/../lib/" />
-	<property name="server_libdir" value="/Users/administrator/Documents/workspaceEE/story/WebContent/WEB-INF/lib" />
-	<!--<property name="server_libdir" value="/Users/yihed/Documents/workspaceEE/StoryServlet/WebContent/WEB-INF/lib" />-->
-	
+	<property name="libdir" value="${basedir}/lib/" />
+
 	<!-- lib containing jars such as thmSearch, thmUtils etc-->
 	<property name="story_jarname" value="story.jar" />
 
@@ -40,14 +38,6 @@
 			<exclude name="**/*.jar" />
 		</jar>
 	</target>
-
-	<target name="copyJarToServlet">			
-			<copy todir="${server_libdir}">				
-				<fileset dir="${basedir}">
-						<include name="${story_jarname}" />
-				</fileset>
-			</copy>				
-	</target>
 	
 	<target name="timestamp">
 	  <tstamp>
@@ -61,8 +51,6 @@
 		<antcall target="compileStory" />
 
 		<antcall target="buildjar" />
-		<antcall target="copyJarToServlet"/>
-		<!--<antcall target="copyJarsToThmpServlet" />-->
 		<antcall target="timestamp">
 		    <param name="message" value="Finished building!" />
 		</antcall>
