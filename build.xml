@@ -33,7 +33,7 @@
 	<target name="buildjar" description="build jar file">
 		<jar destfile="${basedir}/${story_jarname}" basedir="${builddir}">
 			<manifest>
-				<attribute name="Main-Class" value="src/Story" />
+				<attribute name="Main-Class" value="story/Story" />
 			</manifest>
 			<exclude name="**/*.jar" />
 		</jar>
